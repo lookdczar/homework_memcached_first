@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+    <mapper namespace="Game">
+    	<resultMap type="Game" id="result">
+    		<result property="id" column="id"/>
+    		<result property="gameName" column="gName"/>
+    		<result property="gameDes" column="gDes"/>
+    	</resultMap>
+    	<select id="getGameById" parameterType="int" resultMap="result" >
+			SELECT * FROM wangcheng_game_tb WHERE id=#{id}
+    	</select>
+    	<select id="getGameList" parameterType="int" resultMap="result" >
+			SELECT * FROM wangcheng_game_tb  order by id asc;
+    	</select>
+    	<insert id="addGame" parameterType="Game" >
+    			insert into wangcheng_game_tb(gName, gDes) values(#{gameName},#{gameDes});	
+    		<selectKey resultType="int" order="AFTER" keyProperty="id">  
+         	 SELECT LAST_INSERT_ID();    
+   		 </selectKey>	
+    	</insert>
+    	<update  id="updateGame" parameterType="Game" >
+    	update wangcheng_game_tb set gName=#{gameName},gDes=#{gameDes} where id=#{id};
+    	</update >
+    </mapper>

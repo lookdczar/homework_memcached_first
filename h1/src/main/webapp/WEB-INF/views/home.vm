@@ -1,0 +1,47 @@
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+</head>
+<body>
+<h1>
+游戏列表
+</h1>
+
+<div>
+	<table width="300" border="1" bordercolor="black" cellspacing="0">
+                 <tr>   
+					<td>序号</td>
+                   <td>游戏名称</td>
+                   <td>游戏信息</td>
+				   <td>操作</td>
+                 </tr>
+				 #foreach($game in $list)
+                  <tr>
+					<td>$game.id</td>
+                   <td>$game.gameName</td>
+                   <td>$game.gameDes</td>
+				   <td><a href="./ModifyGame?id=$game.id">修改</a></td>
+                 </tr>
+				 #end
+               </table>
+</div>
+<hr>&nbsp;
+	<h2>
+添加新游戏
+</h2>
+<div>
+	<form method="POST" action="./postNewGame">
+        游戏名称：<input type="text" name="gameName"></input>
+		<br/>
+        游戏信息：<input type="text" name="gameDes"></input>
+		
+		<br/>
+		<input type="submit" value="提交新游戏"/>
+    </form>
+</div>
+
+</body>
+</html> 

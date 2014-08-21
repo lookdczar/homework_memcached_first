@@ -1,0 +1,20 @@
+<html lang="zh-CN">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+</head>
+<body>
+	<div>
+	<form method="POST" action="./ModifyGame">
+        游戏名称：<input type="text" name="gameName" value=$game.gameName></input>
+		<br/>
+        游戏信息：<input type="text" name="gameDes" value=$game.gameDes></input>
+		<input type="text" name="id" value=$game.id hidden="true"></input>
+		<br/>
+		<input type="submit" value="修改游戏"/>
+    </form>
+</div>
+</body>
+</html> 
